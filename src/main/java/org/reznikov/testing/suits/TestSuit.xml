@@ -1,0 +1,10 @@
+<suite name="Suite1" verbose="1"  parallel="tests" thread-count="5" >
+    <test name="test1" enabled="true" >
+        <classes>
+            <class name="org.reznikov.testing.gismeteo.pages.RunTest" />
+            <methods>
+                <include name="testGoToTwoWeeksView"></include>
+            </methods>
+        </classes>
+    </test>
+</suite>
