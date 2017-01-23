@@ -17,8 +17,8 @@ public class Temperature extends CityPage {
         return new DayTemp(driver);
     }
 
-    public DayTemp getNightTemp() {
+    public NightTemp getNightTemp() {
         wait.until(ExpectedConditions.textToBe(By.xpath(TEMP_NIGHT), "−4"));
-        return new DayTemp(driver);
+        return new NightTemp(driver);
     }
 }

@@ -20,8 +20,6 @@ public class ItemsCatalog extends LandingPage {
     public ItemsCatalog selectCategory(String category){
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.id("fat_menu_btn"))).build().perform();
-
-
         return this;
     }
 
