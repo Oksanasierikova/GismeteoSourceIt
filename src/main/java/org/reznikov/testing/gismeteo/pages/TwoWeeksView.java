@@ -14,6 +14,7 @@ import java.util.Locale;
 
 public class TwoWeeksView extends CityPage {
     public static final String FORECAST_ON_DATE = "//*[contains(@class,'rframe wblock wdata')][.//*[@class='s_date'][text()='{0}']]";
+
     public TwoWeeksView(WebDriver driver) {
         super(driver);
     }

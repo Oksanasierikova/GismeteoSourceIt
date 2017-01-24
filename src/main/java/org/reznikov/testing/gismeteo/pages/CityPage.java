@@ -10,6 +10,8 @@ public class CityPage //extends GismeteoHomePage
     private static final String THREE_DAYS_VIEW_TAB = "";
     private static final String MONTH_VIEW_TAB = "";
     private static final String TWO_WEEKS_VIEW_TAB = "//*[@id='weather-daily']/div[3]/div[1]/a[4]";
+    private static final String TEMP_DAY = "//*[@id='tbwdaily1']/tr[3]/td[3]/span[1]";
+    private static final String TEMP_NIGHT = "//*[@id='tbwdaily1']/tr[1]/td[3]/span[1]";
 
     protected WebDriver driver;
     protected WebDriverWait wait;
@@ -37,5 +39,15 @@ public class CityPage //extends GismeteoHomePage
     public TwoWeeksView switchToTwoWeeksView() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(TWO_WEEKS_VIEW_TAB))).click();
         return new TwoWeeksView(driver);
+    }
+
+    public DayTemp getDayTemp() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(TEMP_DAY)));
+        return new DayTemp(driver);
+    }
+
+    public NightTemp getNightTemp() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(TEMP_NIGHT)));
+        return new NightTemp(driver);
     }
 }
