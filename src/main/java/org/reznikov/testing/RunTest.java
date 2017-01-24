@@ -16,13 +16,11 @@ public class RunTest extends BaseWebDriverTest {
         GismeteoHomePage page = new GismeteoHomePage(driver);
         page.searchForCity("Харьков");
         wait.until(ExpectedConditions.titleIs("GISMETEO: Погода в Харькове на сегодня, завтра - прогноз погоды на 3 дня, Харьковская область, Харьков, Украина."));
-        CityPage pageTwoWeeks = new CityPage(driver);
-        pageTwoWeeks.switchToTwoWeeksView();
-       // wait.until(ExpectedConditions.urlContains("https://www.gismeteo.ua/weather-kharkiv-5053/14-days/"));
+       TwoWeeksView twoWeeks = new CityPage(driver).switchToTwoWeeksView();
+        // wait.until(ExpectedConditions.urlContains("https://www.gismeteo.ua/weather-kharkiv-5053/14-days/"));
         assert driver.getCurrentUrl().equals("https://www.gismeteo.ua/weather-kharkiv-5053/14-days/");
-        TwoWeeksView twoWeeks = new TwoWeeksView(driver);
         twoWeeks.getForecastForDay(LocalDate.of(2017, 01, 25));
-        pageTwoWeeks.getDayTemp();
-        pageTwoWeeks.getNightTemp();
+        twoWeeks.getDayTemp();
+        twoWeeks.getNightTemp();
     }
 }
